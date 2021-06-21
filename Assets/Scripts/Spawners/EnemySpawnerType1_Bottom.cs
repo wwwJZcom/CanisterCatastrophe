@@ -14,7 +14,7 @@ public class EnemySpawnerType1_Bottom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canSpawn = true;
+        canSpawn = false;
         spawnBounds = GetComponent<BoxCollider>();
     }
 

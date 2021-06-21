@@ -8,7 +8,7 @@ public class FuelCanisterSpawner_Left : MonoBehaviour
     
     private float randomValue;
     private float timePassed;
-    private bool canSpawn;
+    public bool canSpawn;
     private BoxCollider spawnBounds;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class FuelCanisterSpawner_Left : MonoBehaviour
 
         timePassed += Time.deltaTime;
 
-        if (timePassed >= 15f)
+        if (timePassed >= 11f)
         {
             randomChance();
         }
@@ -44,7 +44,7 @@ public class FuelCanisterSpawner_Left : MonoBehaviour
         Vector3 spawnPos = new Vector3(xPos, 0.0f, zPos);
 
         Quaternion spawnRot = new Quaternion();
-        float rotationAngle = Random.Range(260.0f, 280.0f);
+        float rotationAngle = Random.Range(250.0f, 290.0f);
         spawnRot = Quaternion.Euler(0f, rotationAngle, 0f);
 
         Instantiate(objectToSpawn, spawnPos, spawnRot);
@@ -54,7 +54,7 @@ public class FuelCanisterSpawner_Left : MonoBehaviour
     {
         randomValue = Random.value;
 
-        if (randomValue >= 0.1f && randomValue <= 0.38f)
+        if (randomValue >= 0.1f && randomValue <= 0.41f)
         {
             canSpawn = true;
             Debug.Log("TRUE!");

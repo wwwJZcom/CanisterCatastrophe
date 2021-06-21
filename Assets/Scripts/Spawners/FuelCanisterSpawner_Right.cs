@@ -30,7 +30,7 @@ public class FuelCanisterSpawner_Right : MonoBehaviour
 
         timePassed += Time.deltaTime;
 
-        if (timePassed >= 15f)
+        if (timePassed >= 8f)
         {
             randomChance();
         }
@@ -44,7 +44,7 @@ public class FuelCanisterSpawner_Right : MonoBehaviour
         Vector3 spawnPos = new Vector3(xPos, 0.0f, zPos);
 
         Quaternion spawnRot = new Quaternion();
-        float rotationAngle = Random.Range(85.0f, 95.0f);
+        float rotationAngle = Random.Range(70.0f, 110.0f);
         spawnRot = Quaternion.Euler(0f, rotationAngle, 0f);
 
         Instantiate(objectToSpawn, spawnPos, spawnRot);
@@ -54,7 +54,7 @@ public class FuelCanisterSpawner_Right : MonoBehaviour
     {
         randomValue = Random.value;
 
-        if (randomValue >= 0.1f && randomValue <= 0.38f)
+        if (randomValue >= 0.1f && randomValue <= 0.24f)
         {
             canSpawn = true;
             Debug.Log("TRUE!");

@@ -69,8 +69,8 @@ public class Player : MonoBehaviour
             }
 
             // The following are rotation keys (mapped to the arrows)
-            if(Input.GetKey(KeyCode.RightArrow))
-                {
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
                 transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -121,10 +121,18 @@ public class Player : MonoBehaviour
             ScoreSystem.scoreValue -= 15;
         }
 
+        if (other.tag == "Asteroid")
+        {
+            isTouchingEnemy = true;
+            Debug.Log("Oof!");
+            TakeDamage(12);
+            ScoreSystem.scoreValue -= 20;
+        }
+
         if (other.tag == "Fuel")
         {
             Debug.Log("Yes!");
-            increaseHealth(20);
+            increaseHealth(19);
         }
     }
 

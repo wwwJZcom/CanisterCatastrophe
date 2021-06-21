@@ -8,6 +8,7 @@ TagManager:
   - PlayerProjectile
   - Fuel
   - Border
+  - Asteroid
   layers:
   - Default
   - TransparentFX

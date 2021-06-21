@@ -13,7 +13,7 @@ public class ControlsDisappear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnableTextUponStartup();
+        //EnableTextUponStartup();
     }
 
     //Check every frame if the timer has expired, text should disappear

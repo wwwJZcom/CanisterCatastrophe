@@ -1374,6 +1374,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 5699277945049156440, guid: f6b5e064ec6f50c4f856daf0d6a3d10e, type: 3}
   spawnRate: 6
+  increaseAt2500: 0
+  increaseAt5000: 0
+  increaseAt7500: 0
+  increaseAt10000: 0
 --- !u!1 &1046952123
 GameObject:
   m_ObjectHideFlags: 0

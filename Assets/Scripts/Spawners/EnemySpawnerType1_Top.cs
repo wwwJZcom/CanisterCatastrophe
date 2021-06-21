@@ -7,6 +7,10 @@ public class EnemySpawnerType1_Top : MonoBehaviour
     public GameObject enemyToSpawn;
     public float spawnRate;
 
+    public bool increaseAt2500;
+    public bool increaseAt5000;
+    public bool increaseAt7500;
+    public bool increaseAt10000;
     private float timePassed;
     private bool canSpawn;
     private BoxCollider spawnBounds;
@@ -15,6 +19,10 @@ public class EnemySpawnerType1_Top : MonoBehaviour
     void Start()
     {
         canSpawn = true;
+        increaseAt2500 = false;
+        increaseAt5000 = false;
+        increaseAt7500 = false;
+        increaseAt10000 = false;
         spawnBounds = GetComponent<BoxCollider>();
     }
 
@@ -28,10 +36,65 @@ public class EnemySpawnerType1_Top : MonoBehaviour
             timePassed = 0.0f;
         }
 
+        if (ScoreSystem.scoreValue >= 2500)
+        {
+            if (increaseAt2500 = false)
+            {
+                spawnRate -= 0.5f;
+                increaseAt2500 = true;
+            }
+            else
+            {
+                increaseAt2500 = true;
+            }
+        }
+
+        if (ScoreSystem.scoreValue > 5000)
+        {
+            if (increaseAt5000 = false)
+            {
+                spawnRate -= 0.5f;
+                increaseAt2500 = true;
+            }
+            else
+            {
+                increaseAt5000 = true;
+            }
+        }
+
+        if (ScoreSystem.scoreValue > 7500)
+        {
+            if (increaseAt7500 = false)
+            {
+                spawnRate -= 0.5f;
+                increaseAt2500 = true;
+            }
+            else
+            {
+                increaseAt7500 = true;
+            }
+        }
+
+        if (ScoreSystem.scoreValue > 10000)
+        {
+            if (increaseAt10000 = false)
+            {
+                spawnRate -= 1.5f;
+                increaseAt2500 = true;
+            }
+            else
+            {
+                increaseAt10000 = true;
+            }
+        }
+
+
         timePassed += Time.deltaTime;
 
         if (timePassed >= spawnRate)
+        {
             canSpawn = true;
+        }
     }
 
     private void SpawnEnemy()

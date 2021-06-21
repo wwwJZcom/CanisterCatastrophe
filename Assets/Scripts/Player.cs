@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
         isDead = false;
         amountKilled = 0f;
         isTouchingEnemy = false;
-
     }
 
     // Update is called once per frame

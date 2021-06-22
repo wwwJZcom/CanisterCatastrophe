@@ -6,15 +6,17 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed;
     public float rotationSpeed;
-    public float amountKilled;
 
-    protected float Timer;
+    public float Timer;
 
     public int maxHealth = 100;
     public int currentHealth;
     public int delayAmount = 1;
+    public int deathCount = 3;
 
     public HealthBar healthBar;
+    public GameObject gameOverScreen;
+    public GameObject HUD;
 
     public bool isTouchingEnemy;
 
@@ -24,11 +26,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+        ScoreSystem.scoreValue = 0;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         isDead = false;
-        amountKilled = 0f;
         isTouchingEnemy = false;
+        gameOverScreen.SetActive(false);
+        HUD.SetActive(true);
     }
 
     // Update is called once per frame
@@ -107,6 +112,19 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(42.5f, transform.position.y, transform.position.z);
             }
         }
+
+        if (isDead)
+        {
+            Time.timeScale -= 0.01f;
+            if (Time.timeScale <= 0.001f)
+            {
+                Timer += Time.deltaTime;
+                Time.timeScale = 0.002f;
+                gameOverScreen.SetActive(true);
+                HUD.SetActive(false);
+            }
+        }
+
     }
 
     // The following is executed once the Player and an object tagged as "Enemy" collide
@@ -152,6 +170,10 @@ public class Player : MonoBehaviour
             {
                 currentHealth = 100;
             }
+        }
+        else
+        {
+            currentHealth = 0;
         }
     }
 }
